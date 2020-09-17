@@ -32,4 +32,3 @@ if (isset($_POST['edit'])) {
         <?php
     }
 }
-?>

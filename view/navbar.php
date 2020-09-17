@@ -3,6 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Praat met de kok</title>
     <style>
         .dropdown {
             position: relative;
@@ -41,18 +42,18 @@
 </head>
 
 <body>
-    <a href="/praatmetdekoktest/">Homepage</a>
+    <a href="<?=$basePath?>/">Homepage</a>
     <div class="dropdown">
         <div class="dropbtn">Menu toevoegen</div>
         <div class="dropdown-content">
-            <a href="voorgerecht-aanmaken">Voorgerecht toevoegen</a>
-            <a href="hoofdgerecht-aanmaken">Hoofdgerecht toevoegen</a>
-            <a href="nagerecht_aanmaken">Nagerecht toevoegen</a>
-            <a href="bijgerecht-aanmaken">Bijgerecht toevoegen</a>
-            <a href="saus-aanmaken">Saus toevoegen</a>
+            <a href="<?=$basePath?>/voorgerecht-aanmaken">Voorgerecht toevoegen</a>
+            <a href="<?=$basePath?>/hoofdgerecht-aanmaken">Hoofdgerecht toevoegen</a>
+            <a href="<?=$basePath?>/nagerecht-aanmaken">Nagerecht toevoegen</a>
+            <a href="<?=$basePath?>/bijgerecht-aanmaken">Bijgerecht toevoegen</a>
+            <a href="<?=$basePath?>/saus-aanmaken">Saus toevoegen</a>
         </div>
     </div>
-    <a href="menu-inzien">Menu weergeven, wijzigen en verwijderen</a>
+    <a href="<?=$basePath?>/menu-inzien">Menu weergeven, wijzigen en verwijderen</a>
 </body>
 
 </html>

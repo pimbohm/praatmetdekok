@@ -8,4 +8,3 @@ if (isset($_POST['editdefinitief'])) {
     $stmupdate->bindParam(':vegetarisch', $_POST['editvegetarisch']);
     $stmupdate->execute();
 }
-?>

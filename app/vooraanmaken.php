@@ -19,5 +19,3 @@ if(isset($_POST["vooraanmaken"])) {
   $sql->execute();
         }
     }
-
-?>

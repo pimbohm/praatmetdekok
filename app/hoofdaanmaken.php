@@ -19,5 +19,3 @@ if(isset($_POST["hoofdaanmaken"])) {
   $sql->execute();
         }
     }
-
-?>
