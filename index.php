@@ -1,6 +1,12 @@
 <?php
-include"navbar.html";
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+include "navbar.html";
 include "conn.php";
+
 
 $url = $_SERVER['REQUEST_URI'];
 
@@ -41,5 +47,3 @@ if($url == '/praatmetdekoktest/Menu_inzien') {
     include "menuopvragen.php";
     include "menuinzien.php";
 }
-
-?>

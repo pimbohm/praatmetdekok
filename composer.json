@@ -1,0 +1,6 @@
+{
+    "name": "vitalis/praatmetdekok",
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
+    }
+}
