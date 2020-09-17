@@ -27,10 +27,12 @@ if($path_array[0] == 'menu-inzien') {
 	include "menuopvragen.php";
 	include "menuinzien.php";
 }
-
+var_dump($path_array[0]);
 if(array_key_exists($path_array[0], $routes)) {
 	include 'view/' . $routes[$path_array[0]] . '.php';
 	include 'app/' . $routes[$path_array[0]] . '.php';
+} else if ($path_array[0] == '') {
+	include 'view/home.php';
 } else {
 	include 'view/404.php';
 }
