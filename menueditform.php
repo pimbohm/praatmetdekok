@@ -15,7 +15,7 @@ if (isset($_POST['edit'])) {
         <br>
         <label>Type gerecht</label>
         <select name="edittype">
-                <option value="voorgercht">Voorgercht</option>
+                <option value="voorgercht">Voorgerecht</option>
                 <option value="hoofdgerecht">Hoofdgerecht</option>
                 <option value="nagerecht">Nagerecht</option>
                 <option value="bijgerecht">Bijgerecht</option>
