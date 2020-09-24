@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="nl">
 
 <head>
 	<meta charset="utf-8">
@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    $stmt = $conn->prepare("SELECT * FROM dishtype");
+    $stmt = $conn->prepare("SELECT * FROM dishtype WHERE deleted_at IS NULL");
     $stmt->execute();
 
     // set the resulting array to associative
@@ -26,7 +26,7 @@
         <?php
             foreach ($result as $res) {
         ?>
-        <option value="<?php echo $res['dishtypeid']; ?>"> <?php echo $res['dishtypename']; ?> </option>
+        <option value="<?= $res['id']; ?>"><?= $res['name']; ?></option>
         <?php
         }
         ?>
