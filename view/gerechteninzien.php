@@ -9,20 +9,26 @@
 </head>
 
 <body>
-    <h1>Menu</h1>
+    <h1>Gerechten</h1>
     <?php
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach($result as $res) {
+foreach($dish as $d) {
+    if ($d['dishdeleted_at'] == '') {
 ?>
         <form method="post">
-            <input type="hidden" name="id" value="<?php echo $res['dishid']; ?>">
+            <input type="hidden" name="id" value="<?php echo $d['dishid']; ?>">
             <?php
-            echo 'Gerecht: ' . $res['dishname'];
+            echo 'Gerecht: ' . $d['dishname'];
             echo '<br>';
-            echo 'Beschrijving: ' . $res['dishdescription'];
+            echo 'Beschrijving: ' . $d['dishdescription'];
             echo '<br>';
-            echo 'type: ' . $res['dishtypename'];
+            echo 'type: ' . $d['dishtypename'];
             echo '<br>';
+            echo 'Aangemaakt op: ' . $d['dishcreated_at'];
+            echo '<br>';
+            if ($d['dishupdated_at'] != '') {
+                echo 'Gewijzigd op: ' . $d['dishupdated_at'];
+                echo '<br>';
+            }
             ?>
                 <input type="submit" name="edit" value="wijzigen">
                 <input type="submit" name="delete" value="verwijderen">
@@ -30,6 +36,7 @@ foreach($result as $res) {
                 <br>
         </form>
         <?php
+    }
 }
 ?>
 
