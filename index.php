@@ -19,12 +19,5 @@ if($path_array[0] === $_ENV['BASE_PATH']) {
 	$basePath = array_shift($path_array);
 }
 
-//echo "base path: " . $basePath;
-//echo '<pre>';
-//var_dump($path_array);
-//echo '</pre>';
-
-
 include "conn.php";
-include "view/navbar.php";
 include "route.php";

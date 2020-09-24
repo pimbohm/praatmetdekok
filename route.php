@@ -30,24 +30,39 @@
 //	include "menuopvragen.php";
 //	include "menuinzien.php";
 //} 
+$filesArray = ['view/404.php'];
+$pageTitle = "404 pagina niet gevonden";
 if ($path_array[0] == 'gerechten-aanmaken') {
-    include "app/typegerechtenopvragen.php";
-    include "app/gerechtentoevoegen.php";
-    include "view/gerechtenaanmaken.php";
+    $pageTitle = "Gerechten aanmaken";
+    $filesArray = [
+        "app/typegerechtenopvragen.php",
+        "app/gerechtentoevoegen.php",
+        "view/gerechtenaanmaken.php",
+    ];
 } else if ($path_array[0] == 'gerechten-inzien') {
-    include "app/typegerechtenopvragen.php";    
-	include "app/gerechtendelete.php";
-    include "app/gerechtendoedit.php";
-	include "app/gerechtenopvragen.php";
-    include "view/gerechteninzien.php";
-    include "view/gerechteneditform.php";
+    $pageTitle = "Gerechten inzien";
+    $filesArray = [
+        "app/typegerechtenopvragen.php",
+        "app/gerechtendelete.php",
+        "app/gerechtendoedit.php",
+        "app/gerechtenopvragen.php",
+        "view/gerechteninzien.php",
+        "view/gerechteneditform.php",
+    ];
 } 
 //else if(array_key_exists($path_array[0], $routes)) {
 //	include 'view/' . $routes[$path_array[0]] . '.php';
 //	include 'app/' . $routes[$path_array[0]] . '.php';
 //}
 else if ($path_array[0] == '') {
-	include 'view/home.php';
-} else {
-	include 'view/404.php';
+    $pageTitle = "Praat met de kok";
+	$filesArray = ['view/home.php'];
 }
+
+
+// Render the view (header, files and footer)
+include 'view/partials/header.php';
+foreach($filesArray as $file) {
+    include $file;
+}
+include 'view/partials/footer.php';

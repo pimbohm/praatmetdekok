@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Title </title>
-</head>
-
-<body>
-    <h1>Gerechten</h1>
-    <?php
-foreach($dish as $d) {
-    if ($d['dishdeleted_at'] == '') {
+<h1>Gerechten</h1>
+<?php
+    foreach($dish as $d) {
+        if ($d['deleted_at'] == '') {
 ?>
         <form method="post">
-            <input type="hidden" name="id" value="<?php echo $d['dishid']; ?>">
+            <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
             <?php
-            echo 'Gerecht: ' . $d['dishname'];
+            echo 'Gerecht: ' . $d['name'];
             echo '<br>';
-            echo 'Beschrijving: ' . $d['dishdescription'];
+            echo 'Beschrijving: ' . $d['description'];
             echo '<br>';
-            echo 'type: ' . $d['dishtypename'];
+            echo 'type: ' . $d['name'];
             echo '<br>';
-            echo 'Aangemaakt op: ' . $d['dishcreated_at'];
+            echo 'Aangemaakt op: ' . $d['created_at'];
             echo '<br>';
             if ($d['dishupdated_at'] != '') {
-                echo 'Gewijzigd op: ' . $d['dishupdated_at'];
+                echo 'Gewijzigd op: ' . $d['updated_at'];
                 echo '<br>';
             }
             ?>
@@ -38,8 +28,3 @@ foreach($dish as $d) {
         <?php
     }
 }
-?>
-
-</body>
-
-</html>
