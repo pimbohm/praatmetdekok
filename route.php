@@ -45,9 +45,32 @@ if ($path_array[0] == 'gerechten-aanmaken') {
         "app/typegerechtenopvragen.php",
         "app/gerechtendelete.php",
         "app/gerechtendoedit.php",
+        "view/gerechteneditform.php",
         "app/gerechtenopvragen.php",
         "view/gerechteninzien.php",
-        "view/gerechteneditform.php",
+    ];
+} else if ($path_array[0] == 'saus_dieetwens-aanmaken') {
+    $pageTitle = "Saus/dieetwens aanmaken";
+    $filesArray = [
+        "view/addonsaanmaken.php",
+        "app/addonstoevoegen.php",
+    ];
+} else if ($path_array[0] == 'saus_dieetwens-inzien') {
+    $pageTitle = "Saus/dieetwens inzien";
+    $filesArray = [
+        "app/addonsdelete.php",
+        'view/addonseditform.php',
+        'app/addonsdoedit.php',
+        'app/addonsopvragen.php',
+        'view/addonsinzien.php',
+    ];
+} else if ($path_array[0] == 'saus_dieetwens-toewijzen') {
+    $pageTitle = "Saus/dieetwens toewijzen";
+    $filesArray = [
+        "app/gerechtenopvragen.php",
+        "app/addonsopvragen.php",
+        'adddishaddons.php',
+        'createdishaddons.php',
     ];
 } 
 //else if(array_key_exists($path_array[0], $routes)) {

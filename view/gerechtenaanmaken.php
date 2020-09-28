@@ -5,7 +5,7 @@
         <label>beschrijving: </label>
         <textarea name="description" rows="4" cols="50"></textarea>
         <br>
-        <select name='typedish_id'>
+        <select name='dishtype_id'>
         <?php
             foreach ($dishtypes as $dt) {
         ?>
