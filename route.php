@@ -69,8 +69,26 @@ if ($path_array[0] == 'gerechten-aanmaken') {
     $filesArray = [
         "app/gerechtenopvragen.php",
         "app/addonsopvragen.php",
-        'adddishaddons.php',
-        'createdishaddons.php',
+        'view/adddishaddons.php',
+        'app/createdishaddons.php',
+    ];
+} else if ($path_array[0] == 'addongerechten-inzien') {
+    $pageTitle = "Addongerechten inzien";
+    $filesArray = [
+        'app/dishaddonsdelete.php',
+        'app/dishaddonsopvragen.php',
+        'view/dishaddonsinzien.php',
+    ];
+} else if ($path_array[0] == 'menugerechten-kiezen') {
+    $pageTitle = "Menugerechten kiezen";
+    $filesArray = [
+        'addalldishes.php',
+        'selectmenudishes.php',
+    ];
+}  else if ($path_array[0] == 'menu-samenstellen') {
+    $pageTitle = "Menu samenstellen";
+    $filesArray = [
+        'dishestomenu.php',
     ];
 } 
 //else if(array_key_exists($path_array[0], $routes)) {
