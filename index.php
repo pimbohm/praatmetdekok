@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+use App\Model\Dish;
 
+
+$dish = new Dish();
+echo $dish->getDish();
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
