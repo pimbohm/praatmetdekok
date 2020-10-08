@@ -85,10 +85,11 @@ if ($path_array[0] == 'gerechten-aanmaken') {
         'addalldishes.php',
         'selectmenudishes.php',
     ];
-}  else if ($path_array[0] == 'menu-samenstellen') {
-    $pageTitle = "Menu samenstellen";
+}  else if ($path_array[0] == 'vieuw-dishes') {
+    $pageTitle = "Vieuw dishes";
     $filesArray = [
-        'dishestomenu.php',
+        'vieuwtabledata.php',
+        'selecttabledata.php',
     ];
 } 
 //else if(array_key_exists($path_array[0], $routes)) {
