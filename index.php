@@ -18,4 +18,5 @@ if($path_array[0] === $_ENV['BASE_PATH']) {
 	$basePath = array_shift($path_array);
 }
 
-include "route.php";
+$route = new App\Route();
+$route->get($path_array);
