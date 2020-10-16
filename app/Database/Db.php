@@ -1,6 +1,8 @@
 <?php
 
-class Database {
+namespace App\Database;
+
+abstract class Db {
     private $host;
     private $connection; 
     private $databaseName;  
@@ -15,11 +17,12 @@ class Database {
         $this->username = $_ENV['DB_USERNAME'];
         $this->password = $_ENV['DB_PASSWORD'];
         try {
-            $conn = new PDO("$this->connection:host=$this->host;dbname=$this->databaseName", $this->username, $this->password);
+
+            $conn = new \PDO("$this->connection:host=$this->host;dbname=$this->databaseName", $this->username, $this->password);
             // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->conn = $conn;
-        } catch(PDOException $e) {
+        } catch(\PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }

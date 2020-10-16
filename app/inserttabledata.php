@@ -1,6 +1,8 @@
 <?php
 
-class Insert extends Database {
+use App\Database\Db;
+
+class Insert extends Db {
     public function InsertDish($name, $description, $dishtype) {
 
         $conn = $this->conn;

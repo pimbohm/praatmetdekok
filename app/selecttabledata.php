@@ -1,6 +1,8 @@
 <?php
 
-class Select extends Database
+use App\Database\Db;
+
+class Select extends Db
 {
     public function getDish()
     {
