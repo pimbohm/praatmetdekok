@@ -66,6 +66,7 @@ if ($path_array[0] == 'gerechten-aanmaken') {
     $pageTitle = "Saus/dieetwens inzien";
     $filesArray = [
         "app/edittabledata.php",
+        "app/deletetabledata.php",
         "app/doeditaddon.php",
         "app/deleteaddon.php",
         "app/selecttabledata.php",
@@ -73,22 +74,25 @@ if ($path_array[0] == 'gerechten-aanmaken') {
         'view/vieuwaddons.php',
     ];
 }
-// else if ($path_array[0] == 'saus_dieetwens-toewijzen') {
-//    $pageTitle = "Saus/dieetwens toewijzen";
-//    $filesArray = [
-//        "app/gerechtenopvragen.php",
-//        "app/addonsopvragen.php",
-//        'view/adddishaddons.php',
-//        'app/createdishaddons.php',
-//    ];
-//} else if ($path_array[0] == 'addongerechten-inzien') {
-//    $pageTitle = "Addongerechten inzien";
-//    $filesArray = [
-//        'app/dishaddonsdelete.php',
-//        'app/dishaddonsopvragen.php',
-//        'view/dishaddonsinzien.php',
-//    ];
-//} else if ($path_array[0] == 'menugerechten-kiezen') {
+ else if ($path_array[0] == 'saus_dieetwens-toewijzen') {
+    $pageTitle = "Saus/dieetwens toewijzen";
+    $filesArray = [
+        "app/inserttabledata.php",
+        "app/selecttabledata.php",
+        "app/insertdishaddon.php",
+        'view/adddishaddons.php',
+    ];
+}
+ else if ($path_array[0] == 'addongerechten-inzien') {
+    $pageTitle = "Addongerechten inzien";
+    $filesArray = [
+        "app/deletetabledata.php",
+        "app/selecttabledata.php",
+        "app/deletedishaddon.php",
+        "view/vieuwdishaddons.php",
+    ];
+}
+// else if ($path_array[0] == 'menugerechten-kiezen') {
 //    $pageTitle = "Menugerechten kiezen";
 //    $filesArray = [
 //        'addalldishes.php',
