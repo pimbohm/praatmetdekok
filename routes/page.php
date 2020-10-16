@@ -4,6 +4,13 @@ return [
 	'gerechten-aanmaken' => [
 		'title' => 'Gerechten aanmaken',
 		'class' => 'Dish',
-		'type' => 'post'
+		'page' => 'adddish.php',
+		'type' => 'post',
 		],
+	'home' => [
+		'title' => 'Praat met de kok',
+		'class' => 'Index',
+		'page' => 'home.php',
+		'type' => 'get',
+	],
 ];

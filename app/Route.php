@@ -5,6 +5,7 @@ namespace App;
 class Route {
 	protected $apiRoutes;
 	protected $pageRoutes;
+	protected $pageTitle = '';
 
 
 	public function __construct()
@@ -15,36 +16,34 @@ class Route {
 
 	public function get($route)
 	{
-		if($route[0] == '') {
-			return 'home';
-		}
-
 		if($route[0] == 'api') {
 			return $this->API($route);
 		}
 
 		return $this->HTML($route);
-
 	}
+
 	public function API($endpoint) {
 		return $endpoint;
 	}
+
 	public function HTML($page) {
-		$header = include 'view/partials/header.php';
-
-		//$filesArray = ['view/404.php'];
-//$pageTitle = "404 pagina niet gevonden";
-
-		$body = include 'view/404.php';
-		if(array_key_exists($page[0], $this->pageRoutes)){
-			$body = include 'view/' . $this->pageRoutes[$page[0]]['path'] . '.php';
+		if($page[0] == '') {
+			$page[0] = 'home';
 		}
 
+		$this->pageTitle = "404 pagina niet gevonden";
+		$file = 'view/404.php';
 
+		if(array_key_exists($page[0], $this->pageRoutes)){
+			// TODO Instantiate view class instead of filename
+			$file = 'view/' . $this->pageRoutes[$page[0]]['page'];
+			$this->pageTitle = $this->pageRoutes[$page[0]]['title'] ?? '';
+		}
 
-		$footer = include 'view/partials/footer.php';
-		return $header . $body . $footer;
-
+		include 'view/partials/header.php';
+		include $file;
+		include 'view/partials/footer.php';
 	}
 }
 // A mapping array to have maintainable route file
