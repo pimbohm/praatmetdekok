@@ -17,46 +17,46 @@ class Select extends Db
 
     public function getDishEdit($id)
     {
-        $conn = $this->conn;
+        $conn = $this->connection;
         $getdish = $conn->prepare("SELECT * FROM dish WHERE dish.id=:id");
         $getdish->bindParam(':id', $id);
         $getdish->execute();
 
-        $dish = $getdish->fetchAll(PDO::FETCH_ASSOC);
+        $dish = $getdish->fetchAll();
         return $dish;
     }
 
     public function getAddonEdit($id)
     {
-        $conn = $this->conn;
+        $conn = $this->connection;
         $getaddonbyid = $conn->prepare("SELECT * FROM addon WHERE id=:id");
         $getaddonbyid->bindParam(':id', $id);
         $getaddonbyid->execute();
-        $getaddonbyid = $getaddonbyid->fetchAll(PDO::FETCH_ASSOC);
+        $getaddonbyid = $getaddonbyid->fetchAll();
         return $getaddonbyid;
     }
 
     public function getDishType()
     {
-        $conn = $this->conn;
+        $conn = $this->connection;
         $dishtypes = $conn->prepare("SELECT * FROM dishtype WHERE deleted_at IS NULL");
         $dishtypes->execute();
 
-        $dishtypes = $dishtypes->fetchAll(PDO::FETCH_ASSOC);
+        $dishtypes = $dishtypes->fetchAll();
         return $dishtypes;
     }
 
     public function getAddons() {
-        $conn = $this->conn;
+        $conn = $this->connection;
         $getaddons = $conn->prepare("SELECT id, name, description, created_at, updated_at FROM addon WHERE deleted_at IS NULL");
         $getaddons->execute();
 
-        $getaddons = $getaddons->fetchAll(PDO::FETCH_ASSOC);
+        $getaddons = $getaddons->fetchAll();
         return $getaddons;
     }
 
     public function getDishAddons() {
-        $conn = $this->conn;
+        $conn = $this->connection;
         $dishaddon = $conn->prepare("SELECT da.id, da.dish_id, da.addon_id, da.created_at, d.name AS dish, a.name AS addon, d.deleted_at AS dishdel, a.deleted_at AS addondel, dt.name AS type
         FROM dish_addon da
         LEFT JOIN dish d ON d.id = da.dish_id
@@ -65,7 +65,7 @@ class Select extends Db
         $dishaddon->execute();
 
         // set the resulting array to associative
-        $dishaddon = $dishaddon->fetchAll(PDO::FETCH_ASSOC);
+        $dishaddon = $dishaddon->fetchAll();
 
         return $dishaddon;
     }

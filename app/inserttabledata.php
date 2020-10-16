@@ -5,7 +5,7 @@ use App\Database\Db;
 class Insert extends Db {
     public function InsertDish($name, $description, $dishtype) {
 
-        $conn = $this->conn;
+        $conn = $this->connection;
         if(!empty($name)) {
             $insertdish = $conn->prepare("INSERT INTO dish (name, description, dishtype_id, created_at)
                     VALUES (:name, :desc, :type, CURRENT_TIMESTAMP)");
@@ -18,7 +18,7 @@ class Insert extends Db {
 
     public function insertAddon($name, $description) {
 
-        $conn = $this->conn;
+        $conn = $this->connection;
         if(!empty($name)) {
             $insertaddon = $conn->prepare("INSERT INTO addon (name, description, created_at)
                     VALUES (:name, :desc, CURRENT_TIMESTAMP)");
@@ -30,7 +30,7 @@ class Insert extends Db {
 
     public function insertDishAddon($dish, $addon) {
 
-        $conn = $this->conn;
+        $conn = $this->connection;
         if(!empty($addon)) {
             foreach ($addon as $a) {
                 $insertdish = $conn->prepare("INSERT INTO dish_addon (dish_id, addon_id, created_at)

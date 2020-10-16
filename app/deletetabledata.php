@@ -2,7 +2,7 @@
 
 class Delete extends Database {
     public function dishDelete($id) {
-        $conn = $this->conn;
+        $conn = $this->connection;
         $softdelete = $conn->prepare("UPDATE dish SET deleted_at=CURRENT_TIMESTAMP WHERE id=:id");
         $softdelete->bindParam(':id', $id);
         $softdelete->execute();
