@@ -4,25 +4,15 @@ namespace App\Controller;
 
 use App\Model\Dish;
 
-class DishController
+class DishController extends Dish
 {
 	protected $dish;
+	protected $dishTypes;
 
-	public function __construct(Dish $dish)
+	public function view()
 	{
-		$this->dish = $dish;
+		$this->dishTypes = $this->getDishType();
+		include "view/adddish.php";
 	}
 
-
-	public function view(){
-		return 'helloworld';
-	}
-
-	public function list() {
-		$this->dish->list();
-	}
-
-	public function get($id) {
-		$this->dish->get($id);
-	}
 }

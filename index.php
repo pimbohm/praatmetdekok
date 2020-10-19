@@ -11,12 +11,5 @@ $parsed_url = parse_url($fullUrl);
 $trim_path = preg_replace('/^\/+/', '', $parsed_url['path']);
 $path_array = explode(DIRECTORY_SEPARATOR, $trim_path);
 
-// Quick fix for possibility to run from a subfolder
-// If the BASE_PATH is set and it equals first part of request url remove that from $path_array and save it as $basePath!
-$basePath = '';
-if($path_array[0] === $_ENV['BASE_PATH']) {
-	$basePath = array_shift($path_array);
-}
-
 $route = new App\Route();
 $route->get($path_array);

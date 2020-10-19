@@ -6,7 +6,7 @@ class Route {
 	protected $apiRoutes;
 	protected $pageRoutes;
 	protected $pageTitle = '';
-
+	protected $basePath = '';
 
 	public function __construct()
 	{
@@ -28,21 +28,27 @@ class Route {
 	}
 
 	public function HTML($page) {
+		// When BASE_PATH is set and equals first part of request url
+		// remove the path from $page array save it as our $basePath!
+		if($page[0] === $_ENV['BASE_PATH']) {
+			$this->basePath = array_shift($page);
+		}
+
 		if($page[0] == '') {
 			$page[0] = 'home';
 		}
 
-		$this->pageTitle = "404 pagina niet gevonden";
 		$file = 'view/404.php';
+		$this->pageTitle = "404 pagina niet gevonden";
 
 		if(array_key_exists($page[0], $this->pageRoutes)){
-			// TODO Instantiate view class instead of filename
-			$file = 'view/' . $this->pageRoutes[$page[0]]['page'];
+			$class = "App\Controller\\" . $this->pageRoutes[$page[0]]['class'] . "Controller";
+			$file = new $class();
 			$this->pageTitle = $this->pageRoutes[$page[0]]['title'] ?? '';
 		}
 
 		include 'view/partials/header.php';
-		include $file;
+		echo $file->view();
 		include 'view/partials/footer.php';
 	}
 }
