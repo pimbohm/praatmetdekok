@@ -48,7 +48,17 @@ class Route {
 		}
 
 		include 'view/partials/header.php';
-		echo $file->view();
+
+		if ($page[0] == "gerechten-aanmaken") {
+            echo $file->addview();
+            echo $file->insert();
+        }
+		if ($page[0] == "gerechten-inzien") {
+            echo $file->editview();
+            echo $file->edit();
+            echo $file->delete();
+            echo $file->dishview();
+        }
 		include 'view/partials/footer.php';
 	}
 }

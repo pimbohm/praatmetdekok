@@ -7,6 +7,12 @@ return [
 		'page' => 'adddish.php',
 		'type' => 'post',
 		],
+	'gerechten-inzien' => [
+		'title' => 'Gerechten inzien',
+		'class' => 'Dish',
+		'page' => 'vieuwdish.php',
+		'type' => 'post',
+		],
 	'home' => [
 		'title' => 'Praat met de kok',
 		'class' => 'Index',
