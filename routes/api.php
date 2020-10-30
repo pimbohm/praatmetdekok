@@ -2,4 +2,5 @@
 
 return [
 	'dish' => 'dish',
+	'addon' => 'addon',
 ];

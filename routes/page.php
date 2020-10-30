@@ -13,6 +13,18 @@ return [
 		'page' => 'vieuwdish.php',
 		'type' => 'post',
 		],
+	'saus_dieetwens-aanmaken' => [
+		'title' => 'saus/dieetwens aanmaken',
+		'class' => 'Addon',
+		'page' => 'addaddons.php',
+		'type' => 'post',
+		],
+    'saus_dieetwens-inzien' => [
+		'title' => 'sauzen en dieetwensen inzien',
+		'class' => 'Addon',
+		'page' => 'vieuwaddons.php',
+		'type' => 'post',
+		],
 	'home' => [
 		'title' => 'Praat met de kok',
 		'class' => 'Index',

@@ -59,6 +59,17 @@ class Route {
             echo $file->delete();
             echo $file->dishview();
         }
+		if ($page[0] == "saus_dieetwens-aanmaken") {
+            echo $file->view();
+            echo $file->insert();
+        }
+		if ($page[0] == "saus_dieetwens-inzien") {
+		    echo $file->editview();
+		    echo $file->edit();
+		    echo $file->delete();
+            echo $file->viewaddons();
+        }
+
 		include 'view/partials/footer.php';
 	}
 }
