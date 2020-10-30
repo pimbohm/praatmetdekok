@@ -25,6 +25,18 @@ return [
 		'page' => 'vieuwaddons.php',
 		'type' => 'post',
 		],
+    'saus_dieetwens-toewijzen' => [
+		'title' => 'sauzen en dieetwensen toewijzen',
+		'class' => 'DishAddon',
+		'page' => 'vieuwdishaddons.php',
+		'type' => 'post',
+		],
+    'addongerechten-inzien' => [
+		'title' => 'addongerechten inzien',
+		'class' => 'DishAddon',
+		'page' => 'adddishaddons.php',
+		'type' => 'post',
+		],
 	'home' => [
 		'title' => 'Praat met de kok',
 		'class' => 'Index',

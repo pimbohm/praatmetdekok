@@ -69,6 +69,14 @@ class Route {
 		    echo $file->delete();
             echo $file->viewaddons();
         }
+		if ($page[0] == "saus_dieetwens-toewijzen") {
+		    echo $file->insert();
+		    echo $file->view();
+        }
+		if ($page[0] == "addongerechten-inzien") {
+            echo $file->delete();
+		    echo $file->viewdishaddon();
+        }
 
 		include 'view/partials/footer.php';
 	}
