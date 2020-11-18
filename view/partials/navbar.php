@@ -39,6 +39,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/addongerechten-inzien">Gerechten met sauzen/dieetwensen weergeven</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu-aanmaken">Menu aanmaken</a>
+                </li>
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link" href="/menugerechten-kiezen">Gerechten voor een menu kiezen</a>-->
 <!--                </li>-->

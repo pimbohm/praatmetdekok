@@ -37,6 +37,12 @@ return [
 		'page' => 'adddishaddons.php',
 		'type' => 'post',
 		],
+    'menu-aanmaken' => [
+		'title' => 'menu aanmaken',
+		'class' => 'Menu',
+		'page' => 'createmenu.php',
+		'type' => 'post',
+		],
 	'home' => [
 		'title' => 'Praat met de kok',
 		'class' => 'Index',

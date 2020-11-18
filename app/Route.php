@@ -77,6 +77,10 @@ class Route {
             echo $file->delete();
 		    echo $file->viewdishaddon();
         }
+		if ($page[0] == "menu-aanmaken") {
+		    echo $file->view();
+		    echo $file->insert();
+        }
 
 		include 'view/partials/footer.php';
 	}
