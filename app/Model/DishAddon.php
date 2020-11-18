@@ -30,7 +30,7 @@ class DishAddon extends Db
     public function getDishAddons() {
         $conn = $this->connection;
         $dishaddon = $conn->prepare("SELECT da.id, da.dish_id, da.addon_id, da.created_at, d.name AS dish, a.name AS addon, d.deleted_at AS dishdel, a.deleted_at AS addondel, dt.name AS type
-        FROM dish_addon da
+        FROM dishaddon da
         LEFT JOIN dish d ON d.id = da.dish_id
         LEFT JOIN ADDON a ON a.id = da.addon_id
         LEFT JOIN dishtype dt ON dt.id = d.dishtype_id WHERE da.deleted_at IS NULL");
@@ -47,7 +47,7 @@ class DishAddon extends Db
         $conn = $this->connection;
         if(!empty($addon)) {
             foreach ($addon as $a) {
-                $insertdish = $conn->prepare("INSERT INTO dish_addon (dish_id, addon_id, created_at)
+                $insertdish = $conn->prepare("INSERT INTO dishaddon (dish_id, addon_id, created_at)
             VALUES (:dish, :addon, CURRENT_TIMESTAMP)");
                 $insertdish->bindParam(':dish', $dish);
                 $insertdish->bindParam(':addon', $a);
@@ -58,7 +58,7 @@ class DishAddon extends Db
 
     public function dishAddonDelete($id) {
         $conn = $this->connection;
-        $softdelete = $conn->prepare("UPDATE dish_addon SET deleted_at=CURRENT_TIMESTAMP WHERE id=:id");
+        $softdelete = $conn->prepare("UPDATE dishaddon SET deleted_at=CURRENT_TIMESTAMP WHERE id=:id");
         $softdelete->bindParam(':id', $id);
         $softdelete->execute();
     }
