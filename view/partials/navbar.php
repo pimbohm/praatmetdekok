@@ -42,9 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/menu-aanmaken">Menu aanmaken</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/menugerechten-kiezen">Gerechten voor een menu kiezen</a>-->
-<!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu-inzien">Menu weergeven, wijzigen en verwijderen</a>
+                </li>
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link" href="/vieuw-dishes">Gerechten inzien</a>-->
 <!--                </li>-->

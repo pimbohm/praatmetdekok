@@ -7,10 +7,17 @@ use App\Model\Menu;
 class Menucontroller extends Menu {
     protected $dish;
     protected $dishaddons;
+    protected $menu;
+
     public function view() {
         $this->dish = $this->getDish();
         $this->dishaddons = $this->getDishAddons();
         include 'view/createmenu.php';
+    }
+
+    public function viewmenu() {
+        $this->menu = $this->getMenu();
+        include "view/vieuwmenu.php";
     }
 
     public function insert() {

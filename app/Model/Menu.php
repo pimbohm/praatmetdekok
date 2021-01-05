@@ -47,8 +47,6 @@ LEFT JOIN dishtype dt ON dt.id = d.dishtype_id AND dt.deleted_at IS NULL WHERE d
             $date = $date2;
         }
 
-        echo $date;
-
         $type = [$startertype, $maintype, $desserttype,];
         $id = [$starterid, $mainid, $dessertid,];
 
@@ -78,4 +76,33 @@ VALUES (:dish, :lastid, CURRENT_TIMESTAMP)");
             $i++;
         }
     }
+
+    public function getMenu() {
+        $conn =  $this->connection;
+
+        $menu = $conn->prepare("SELECT m.id, m.name, m.date, md.menu_id, md.dish_id, md.dishaddon_id, d.id AS dishid, d.name AS dish, d.dishtype_id, dt.name AS type, a.name AS addon
+FROM menu m
+LEFT JOIN menudish md ON md.menu_id = m.id
+LEFT JOIN dishaddon da ON da.id = dishaddon_id
+LEFT JOIN dish d ON d.id = md.dish_id || d.id = da.dish_id
+LEFT JOIN addon a ON a.id = da.addon_id
+LEFT JOIN dishtype dt ON dt.id = d.dishtype_id
+");
+        $menu->execute();
+
+        $menu = $menu->fetchAll();
+        return $menu;
+    }
 }
+
+
+//d.id AS dishid, d.name AS dish, d.dishtype_id AS dishtypeid,
+//dt.id AS dishtypeid, dt.name AS dishtype,
+//da.id AS dishaddonid, da.dish_id AS dishaddondishid, da.addon_id AS dishaddonaddon_id,
+//a.id AS addonid, a.name AS addon
+//
+
+//        LEFT JOIN dishaddon da ON da.id = md.dishaddon_id
+//        LEFT JOIN dish d ON d.id = md.dish_id AND d.id = da.dish_id
+//        LEFT JOIN addon a ON a.id = da.addon_id
+//        LEFT JOIN dishtype dt ON dt.id = d.dishtype_id

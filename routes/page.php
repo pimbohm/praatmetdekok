@@ -43,6 +43,12 @@ return [
 		'page' => 'createmenu.php',
 		'type' => 'post',
 		],
+    'menu-inzien' => [
+		'title' => 'menu inzien',
+		'class' => 'Menu',
+		'page' => 'vieuwmenu.php',
+		'type' => 'post',
+		],
 	'home' => [
 		'title' => 'Praat met de kok',
 		'class' => 'Index',

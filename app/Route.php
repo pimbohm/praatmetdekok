@@ -81,6 +81,9 @@ class Route {
 		    echo $file->view();
 		    echo $file->insert();
         }
+		if ($page[0] == "menu-inzien") {
+		    echo $file->viewmenu();
+        }
 
 		include 'view/partials/footer.php';
 	}
