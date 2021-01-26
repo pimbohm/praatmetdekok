@@ -82,6 +82,9 @@ class Route {
 		    echo $file->insert();
         }
 		if ($page[0] == "menu-inzien") {
+            echo $file->edit();
+            echo $file->doedit();
+            echo $file->deletemenu();
 		    echo $file->viewmenu();
         }
 

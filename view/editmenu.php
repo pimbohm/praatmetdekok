@@ -1,11 +1,29 @@
-<h1>Menu aanmaken</h1>
-<form method="post">
-    <label>Menunaam: </label>
-    <input type="text" name="name"><br>
-    <label>Datum: </label>
-    <input type="datetime-local" name="date"><br>
-    <label>Voorgerecht: </label>
-    <select name="starter">
+<?php
+$iteration = 1;
+    foreach ($this->menurow as $menu) {
+        ?>
+        <form method="post">
+<?php
+        if ($iteration == 1) {
+            ?>
+            <input type="hidden" name="id" value="<?php echo $menu["id"]; ?>">
+<?php
+            if (empty($menu['name'])) {
+                ?>
+                <label>Menunaam: </label>
+                <input type="text" name="menuname"><br>
+            <?php
+            } else {
+            ?>
+                <label>Menunaam: </label>
+                <input type="text" name="menuname" value="<?php echo $menu['name']; ?>"><br>
+<?php
+            }
+            ?>
+                <label>datum: </label>
+                <input type="datetime" name="date" value="<?php echo $menu['date']; ?>"><br>
+                <label>voorgerecht: </label>
+                <select name="starter">
         <?php
         foreach ($this->dish as $d) {
             if ($d['type'] == 'voorgerecht') {
@@ -64,16 +82,17 @@
         ?>
     </select>
     <br>
-    <!--
-    <label>Period: </label>
-    <select name="period">
-        <option></option>
-    </select>
-    <br>
-    <label>Locatie: </label>
-    <select name="location">
-        <option></option>
-    </select>
-    -->
-    <input type="submit" name="createmenu" value="Menu aanmaken">
-</form>
+    <input type="submit" name="doedit" value="wijzig">
+<?php
+            foreach ($this->menudishid as $menudishid) {
+                ?>
+                <input type="hidden" name="menudishid[]" value="<?php echo $menudishid ?>">
+<?php
+            }
+        }
+        $iteration++;
+        ?>
+
+        </form>  
+<?php
+    }
